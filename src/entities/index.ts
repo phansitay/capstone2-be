@@ -5,6 +5,7 @@ import { SuggestSchedule } from './suggest-schedule';
 
 import { RolePermission } from './role-permissions';
 import { UserEntity } from './user.entity';
+import { Baby } from "./baby";
 
 export {
   Blog,
@@ -13,6 +14,7 @@ export {
   SuggestSchedule,
   RolePermission,
   UserEntity,
+  Baby
 };
 
 //entity_here

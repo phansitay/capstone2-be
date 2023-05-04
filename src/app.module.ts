@@ -8,13 +8,13 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import { AuthModule } from './modules/auth/auth.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { UploadModule } from './modules/upload/upload.module';
-import { CacheModule } from './modules/cache/cache.module';
 
 // import_module_here
 import { BlogModule } from './modules/blog/blog.module';
 import { BookDoctorModule } from './modules/book-doctor/book-doctor.module';
 import { BmiKidModule } from './modules/bmi-kid/bmi-kid.module';
 import { SuggestScheduleModule } from './modules/suggest-schedule/suggest-schedule.module';
+import { BabyModule } from './modules/baby/baby.module';
 
 @Module({
   imports: [
@@ -44,7 +44,9 @@ import { SuggestScheduleModule } from './modules/suggest-schedule/suggest-schedu
     BlogModule,
     BookDoctorModule,
     BmiKidModule,
-    SuggestScheduleModule, // append_here
+    SuggestScheduleModule, 
+    BabyModule
+    // append_here
   ],
   controllers: [AppController],
   providers: [],
