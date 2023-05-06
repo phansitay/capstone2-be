@@ -1,15 +1,15 @@
 import { Controller } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
-import { Crud, CrudAuth, CrudController } from "@nestjsx/crud";
+import { Crud, CrudController } from "@nestjsx/crud";
 
 import { Auth } from "../../decorators";
-import { Baby } from "../../entities";
-import { BabyService} from "./baby.service";
+import { UserEntity as User } from "../../entities";
+import { UserService} from "./user.service";
 
 @Auth({ checkRole: true })
 @Crud({
   model: {
-    type: Baby,
+    type: User,
   },
   query: {
     alwaysPaginate: true,
@@ -32,11 +32,8 @@ import { BabyService} from "./baby.service";
     },
   },
 })
-@ApiTags("client/babies")
-@Controller("client/babies")
-@CrudAuth({
-  persist: (req) => (console.log("userId",req?.user?.id), {userId: +req?.user?.id})
-})
-export class ClientBabyController implements CrudController<Baby> {
-  constructor(public service: BabyService) {}
+@ApiTags("client/users")
+@Controller("client/users")
+export class ClientUserController implements CrudController<User> {
+  constructor(public service: UserService) {}
 }

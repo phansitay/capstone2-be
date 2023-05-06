@@ -15,6 +15,7 @@ import { BookDoctorModule } from './modules/book-doctor/book-doctor.module';
 import { BmiKidModule } from './modules/bmi-kid/bmi-kid.module';
 import { SuggestScheduleModule } from './modules/suggest-schedule/suggest-schedule.module';
 import { BabyModule } from './modules/baby/baby.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
@@ -45,7 +46,8 @@ import { BabyModule } from './modules/baby/baby.module';
     BookDoctorModule,
     BmiKidModule,
     SuggestScheduleModule, 
-    BabyModule
+    BabyModule,
+    UserModule
     // append_here
   ],
   controllers: [AppController],
