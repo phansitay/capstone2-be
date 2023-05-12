@@ -1,11 +1,17 @@
+import { Transform } from 'class-transformer';
 import {
   BaseEntity,
   CreateDateColumn,
   DeleteDateColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 export class WithTimestamp extends BaseEntity {
+  @PrimaryGeneratedColumn({ type: 'bigint' })
+  @Transform((id) => +id.value, { toPlainOnly: true })
+  id: number;
+
   @CreateDateColumn({
     name: 'created_at',
     type: 'timestamptz',

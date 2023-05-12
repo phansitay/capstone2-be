@@ -59,6 +59,10 @@ export class UserEntity extends WithIdAndTimestamp {
   role: string;
 
   @ApiProperty()
+  @IsString()
+  @Column({ nullable: true })
+  medicalDegree: string;
+  @ApiProperty()
   @IsOptional()
   @Column({ nullable: true, type: 'jsonb' })
   rolePermission: unknown | null;
@@ -68,8 +72,8 @@ export class UserEntity extends WithIdAndTimestamp {
   }
 
   @ApiProperty()
-  @Column('jsonb', { name: 'medical_degree', nullable: true })
-  medicalDegree: object | null;
+  // @Column(string, { name: 'medical_degree', nullable: true })
+
 
   @OneToMany(() => Blog, (blog) => blog.user)
   blogs: Blog[];
