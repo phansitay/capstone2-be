@@ -35,9 +35,9 @@ export class BmiKid extends WithTimestamp {
   @Column('date', { name: 'start_time', nullable: true })
   startTime: string | null;
 
-  @ApiProperty()
-  @Column('date', { name: 'end_time', nullable: true })
-  endTime: string | null;
+  // @ApiProperty()
+  // @Column('date', { name: 'end_time', nullable: true })
+  // endTime: string | null;
 
   @ManyToOne(() => SuggestSchedule, (suggestSchedule) => suggestSchedule.bmiKs)
   @JoinColumn([{ name: 'schedule_id', referencedColumnName: 'id' }])

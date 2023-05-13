@@ -15,7 +15,7 @@ import { UserService} from "./user.service";
     alwaysPaginate: true,
     softDelete: true,
     join: {
-      user: { eager: false },
+      babies: { eager: false },
     },
   },
   routes: {
