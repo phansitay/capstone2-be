@@ -16,6 +16,8 @@ import { BmiKidModule } from './modules/bmi-kid/bmi-kid.module';
 import { SuggestScheduleModule } from './modules/suggest-schedule/suggest-schedule.module';
 import { BabyModule } from './modules/baby/baby.module';
 import { UserModule } from './modules/user/user.module';
+import { SuggestScheduleCategory } from './entities/suggest-schedule-category';
+import { SuggestScheduleCategoryModule } from './modules/suggest-schedule-category/suggest-schedule-category.module';
 
 @Module({
   imports: [
@@ -46,6 +48,7 @@ import { UserModule } from './modules/user/user.module';
     BookDoctorModule,
     BmiKidModule,
     SuggestScheduleModule, 
+    SuggestScheduleCategoryModule,
     BabyModule,
     UserModule
     // append_here

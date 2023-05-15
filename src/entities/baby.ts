@@ -15,6 +15,11 @@ export class Baby extends WithIdAndTimestamp {
     @ApiProperty()
     @Column()
     @IsString()
+    time: string | null;
+
+    @ApiProperty()
+    @Column()
+    @IsString()
     birthDate: Date;
 
     @ApiProperty()
