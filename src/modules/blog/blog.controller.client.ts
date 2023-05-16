@@ -1,6 +1,6 @@
 import { Controller } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
-import { Crud, CrudController } from "@nestjsx/crud";
+import { Crud, CrudAuth, CrudController } from "@nestjsx/crud";
 
 import { Auth } from "../../decorators";
 import { Blog } from "../../entities";
@@ -33,7 +33,10 @@ import { BlogService } from "./blog.service";
   },
 })
 @ApiTags("client/blogs")
-@Controller("client/blog")
+@Controller("client/blogs")
+@CrudAuth({
+  persist: (req) => (console.log("userId",req?.user?.id), {userId: +req?.user?.id})
+})
 export class ClientBlogController implements CrudController<Blog> {
   constructor(public service: BlogService) {}
 }

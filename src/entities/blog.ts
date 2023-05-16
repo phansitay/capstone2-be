@@ -10,10 +10,11 @@ import { ApiProperty } from '@nestjs/swagger';
 import { WithTimestamp } from './withTimestamp';
 import { UserEntity as Users } from './user.entity';
 import { IsBoolean, IsOptional, IsString, MaxLength } from 'class-validator';
+import { WithIdAndTimestamp } from './withIdAndTimestamp';
 
 @Index('blog_pkey', ['id'], { unique: true })
 @Entity('blog', { schema: 'public' })
-export class Blog extends WithTimestamp {
+export class Blog extends WithIdAndTimestamp {
   // @ApiProperty()
   // @Column('integer', { primary: true, name: 'id' })
   // id: number;
@@ -33,15 +34,11 @@ export class Blog extends WithTimestamp {
   @Column('character varying', { name: 'images', nullable: true })
   images: string | null;
 
-  // @ApiProperty()
-  // @IsString()
-  // @Column('jsonb', { name: 'images', nullable: true })
-  // images: object | null;
 
   @ManyToOne(() => Users, (users) => users.blogs)
   @JoinColumn([{ name: 'user_id', referencedColumnName: 'id' }])
   user: Users;
 
-  @RelationId((blog: Blog) => blog.user)
-  userId: number | null;
+  @Column()
+  userId: number;
 }

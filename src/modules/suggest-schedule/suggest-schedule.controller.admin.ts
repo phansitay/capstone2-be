@@ -16,6 +16,7 @@ import { SuggestScheduleService } from "./suggest-schedule.service";
     softDelete: true,
     join: {
       bmiKs: { eager: false },
+      suggestScheduleCategory: {eager: false}
     },
   },
   routes: {

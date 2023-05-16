@@ -32,8 +32,8 @@ import { BabyService } from "./baby.service";
     },
   },
 })
-@ApiTags("admin/blogs")
-@Controller("admin/blog")
+@ApiTags("admin/babies")
+@Controller("admin/babies")
 export class AdminBabyController implements CrudController<Baby> {
   constructor(public service: BabyService) {}
 }

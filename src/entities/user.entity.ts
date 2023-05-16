@@ -86,4 +86,5 @@ export class UserEntity extends WithIdAndTimestamp {
 
   @OneToMany(() => BookDoctor, (bookDoctor) => bookDoctor.user)
   users: BookDoctor[];
+
 }

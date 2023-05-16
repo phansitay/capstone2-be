@@ -61,7 +61,7 @@ export class BmiKid extends WithTimestamp {
   @ApiProperty()
   @IsNumber()
   @Type(() => Number)
-  @RelationId((bmiKid: BmiKid) => bmiKid.baby)
+  @Column()
   babyId: number | null;
 
   @RelationId((bmiKid: BmiKid) => bmiKid.schedule)

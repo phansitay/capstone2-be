@@ -33,7 +33,7 @@ import { BlogService } from "./blog.service";
   },
 })
 @ApiTags("admin/blogs")
-@Controller("admin/blog")
+@Controller("admin/blogs")
 export class AdminBlogController implements CrudController<Blog> {
   constructor(public service: BlogService) {}
 }

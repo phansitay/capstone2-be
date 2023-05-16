@@ -12,8 +12,9 @@ export class Baby extends WithIdAndTimestamp {
     @IsString()
     name: string;
 
+
     @ApiProperty()
-    @Column()
+    @Column({default: () => 'CURRENT_TIMESTAMP(6)'})
     @IsString()
     time: string | null;
 
