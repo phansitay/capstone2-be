@@ -12,6 +12,7 @@ import { SuggestSchedule } from './suggest-schedule';
 import { UserEntity as Users } from './user.entity';
 import { Baby } from './baby';
 import { IsBoolean, IsDate, IsNumber, IsString } from "class-validator";
+import { Type } from 'class-transformer';
 
 @Index('bmi_kid_pkey', ['id'], { unique: true })
 @Entity('bmi_kid', { schema: 'public' })
@@ -57,9 +58,13 @@ export class BmiKid extends WithTimestamp {
   @JoinColumn([{ name: 'baby_id', referencedColumnName: 'id' }])
   baby: Baby;
 
+  @ApiProperty()
+  @IsNumber()
+  @Type(() => Number)
+  @RelationId((bmiKid: BmiKid) => bmiKid.baby)
+  babyId: number | null;
+
   @RelationId((bmiKid: BmiKid) => bmiKid.schedule)
   scheduleId: number | null;
-
-  @RelationId((bmiKid: BmiKid) => bmiKid.baby)
-  userId: number | null;
+  
 }

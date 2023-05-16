@@ -16,7 +16,8 @@ import { BmiKidService } from "./bmi-kid.service";
     softDelete: true,
     join: {
       schedule: { eager: false },
-      user: { eager: false },
+      user:{eager: false},
+      baby:{eager: false}
     },
   },
   routes: {

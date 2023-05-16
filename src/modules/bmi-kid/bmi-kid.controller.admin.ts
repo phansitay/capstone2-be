@@ -17,6 +17,8 @@ import { BmiKidService } from "./bmi-kid.service";
     join: {
       schedule: { eager: false },
       user: { eager: false },
+      baby: { eager: false },
+      
     },
   },
   routes: {
