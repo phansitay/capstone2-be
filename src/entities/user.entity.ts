@@ -75,16 +75,16 @@ export class UserEntity extends WithIdAndTimestamp {
   // @Column(string, { name: 'medical_degree', nullable: true })
 
 
-  @OneToMany(() => Blog, (blog) => blog.user)
+  @OneToMany(() => Blog, (blogs) => blogs.user)
   blogs: Blog[];
 
   @OneToMany(() => Baby, (babies) => babies.user)
   babies: Baby[];
 
-  @OneToMany(() => BookDoctor, (bookDoctor) => bookDoctor.doctor)
-  doctors: BookDoctor[];
+  @OneToMany(() => BookDoctor, (bookDoctors) => bookDoctors.user)
+  bookDoctors: BookDoctor[];
 
-  @OneToMany(() => BookDoctor, (bookDoctor) => bookDoctor.user)
-  users: BookDoctor[];
+  // @OneToMany(() => BookDoctor, (bookDoctors) => bookDoctors.user)
+  // bookDoctors: BookDoctor[];
 
 }

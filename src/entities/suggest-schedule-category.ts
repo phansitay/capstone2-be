@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, RelationId } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
-import {IsString } from "class-validator";
+import {IsNumber, IsString } from "class-validator";
 import { SuggestSchedule } from "./suggest-schedule";
 import { WithIdAndTimestamp } from "./withIdAndTimestamp";
 
@@ -15,6 +15,12 @@ export class SuggestScheduleCategory extends WithIdAndTimestamp {
     @Column()
     @IsString()
     content: string;
+
+    // @ApiProperty()
+    // @Column()
+    // @IsNumber()
+    // rank: number;
+
 
     @OneToMany(() => SuggestSchedule, (suggestSchedules) => suggestSchedules.suggestScheduleCategory)
     suggestSchedules: SuggestSchedule[];

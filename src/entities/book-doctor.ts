@@ -9,13 +9,15 @@ import {
 import { ApiProperty } from '@nestjs/swagger';
 import { WithTimestamp } from './withTimestamp';
 import { UserEntity as Users } from './user.entity';
+import { WithIdAndTimestamp } from './withIdAndTimestamp';
+import { IsBoolean, IsDate, IsNumber, IsString } from "class-validator";
 
 @Index('book_doctor_pkey', ['id'], { unique: true })
 @Entity('book_doctor', { schema: 'public' })
-export class BookDoctor extends WithTimestamp {
-  @ApiProperty()
-  @Column('integer', { primary: true, name: 'id' })
-  id: number;
+export class BookDoctor extends WithIdAndTimestamp {
+  // @ApiProperty()
+  // @Column('integer', { primary: true, name: 'id' })
+  // id: number;
 
   @ApiProperty()
   @Column('date', { name: 'start_time', nullable: true })
@@ -26,24 +28,28 @@ export class BookDoctor extends WithTimestamp {
   endTime: string | null;
 
   @ApiProperty()
+  @IsString()
   @Column('character varying', { name: 'content', nullable: true })
   content: string | null;
 
   @ApiProperty()
+  @IsString()
   @Column('character varying', { name: 'status', nullable: true })
   status: string | null;
 
-  @ManyToOne(() => Users, (users) => users.doctors)
-  @JoinColumn([{ name: 'doctor_id', referencedColumnName: 'id' }])
-  doctor: Users;
-
-  @ManyToOne(() => Users, (users) => users.users)
+  @ManyToOne(() => Users, (users) => users.bookDoctors)
   @JoinColumn([{ name: 'user_id', referencedColumnName: 'id' }])
   user: Users;
 
-  @RelationId((bookDoctor: BookDoctor) => bookDoctor.doctor)
-  doctorId: number | null;
 
-  @RelationId((bookDoctor: BookDoctor) => bookDoctor.user)
-  userId: number | null;
+  // @RelationId((bookDoctor: BookDoctor) => bookDoctor.doctor)
+  // doctorId: number | null;
+
+  // @ManyToOne(() => Users, (users) => users.bookDoctors)
+  // @JoinColumn([{ name: 'user_id', referencedColumnName: 'id' }])
+  // user: Users;
+
+  @Column()
+  userId: number;
+
 }

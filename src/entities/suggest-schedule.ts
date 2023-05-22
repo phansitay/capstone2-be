@@ -43,6 +43,6 @@ export class SuggestSchedule extends WithTimestamp {
     @JoinColumn([{ name: 'schedule_category_id', referencedColumnName: 'id' }])
     suggestScheduleCategory: SuggestScheduleCategory;
 
-    // @Column()
-    // scheduleCategory: number;
+    @Column()
+    scheduleCategory: number;
 }

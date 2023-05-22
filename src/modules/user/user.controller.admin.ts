@@ -16,7 +16,8 @@ import { UserService } from "./user.service";
     softDelete: true,
     join: {
       babies: { eager: false },
-      blogs: {eager: false}
+      blogs: {eager: false},
+      bookDoctors: {eager: false}
     },
   },
   routes: {
