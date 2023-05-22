@@ -40,9 +40,13 @@ export class SuggestSchedule extends WithTimestamp {
   bmiKs: BmiKid[];
 
   @ManyToOne(() => SuggestScheduleCategory, (suggestScheduleCategorys) => suggestScheduleCategorys.suggestSchedules)
-    @JoinColumn([{ name: 'schedule_category_id', referencedColumnName: 'id' }])
+    @JoinColumn([{referencedColumnName: 'id' }])
     suggestScheduleCategory: SuggestScheduleCategory;
 
-    @Column()
-    scheduleCategory: number;
+  @Column()
+  @ApiProperty()
+  suggestScheduleCategoryId: number;
+
+    // @Column()
+    // scheduleCategory: number | null;
 }
