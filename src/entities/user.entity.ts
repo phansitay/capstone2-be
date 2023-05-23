@@ -47,6 +47,16 @@ export class UserEntity extends WithIdAndTimestamp {
   email: string;
 
   @ApiProperty()
+  @IsString()
+  @Column("character varying", { name: "address", nullable: true })
+  address: string ;
+
+  @ApiProperty()
+  @IsString()
+  @Column("character varying", { name: "image", nullable: true })
+  image: string ;
+
+  @ApiProperty()
   @IsBoolean()
   @Column({ default: true })
   isActive: boolean;
