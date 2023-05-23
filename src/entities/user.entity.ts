@@ -56,6 +56,16 @@ export class UserEntity extends WithIdAndTimestamp {
   image: string ;
 
   @ApiProperty()
+  @IsString()
+  @Column({ nullable: true })
+  roomName: string;
+
+  @ApiProperty()
+  @IsString()
+  @Column({ nullable: true })
+  businessHours: string;
+
+  @ApiProperty()
   @IsBoolean()
   @Column({ default: true })
   isActive: boolean;
