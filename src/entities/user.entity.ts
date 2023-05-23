@@ -11,11 +11,10 @@ import { Baby } from './baby';
 
 @Entity('users')
 export class UserEntity extends WithIdAndTimestamp {
-  @ApiPropertyOptional()
+  @ApiProperty({ minLength: 6 })
   @IsString()
   @IsOptional()
   @Column({ select: false, nullable: true })
-  @Exclude()
   password: string;
 
   @ApiProperty()
