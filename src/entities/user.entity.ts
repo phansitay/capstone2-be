@@ -47,12 +47,12 @@ export class UserEntity extends WithIdAndTimestamp {
 
   @ApiProperty()
   @IsString()
-  @Column("character varying", { name: "address", nullable: true })
+  @Column({ nullable: true })
   address: string ;
 
   @ApiProperty()
   @IsString()
-  @Column("character varying", { name: "image", nullable: true })
+  @Column({ nullable: true })
   image: string ;
 
   @ApiProperty()
