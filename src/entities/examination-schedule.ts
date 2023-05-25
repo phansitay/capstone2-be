@@ -31,6 +31,12 @@ export class ExaminationSchedule extends WithIdAndTimestamp {
 
   @ApiProperty()
   @IsString()
+  @Column('character varying', { name: 'date', nullable: true })
+  date: string | null;
+
+
+  @ApiProperty()
+  @IsString()
   @Column('character varying', { name: 'status', nullable: true })
   status: string | null;
 
