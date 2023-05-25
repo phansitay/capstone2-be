@@ -48,6 +48,11 @@ export class RegisterDto {
   @IsOptional()
   @IsString()
   phoneNumber?: string;
+  
+  @ApiProperty()
+  @IsOptional()
+  @IsString()
+  address?: string;
 
   @ApiProperty()
   @IsOptional({ groups: [UPDATE, CREATE] })
