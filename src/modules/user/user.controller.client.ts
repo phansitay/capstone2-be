@@ -18,7 +18,8 @@ import { UserService} from "./user.service";
       babies: { eager: false },
       blogs: {eager: false},
       doctors: {eager: false},
-      bookDoctors: {eager: false}
+      bookDoctors: {eager: false},
+      examinationSchedule: {eager: false}
     },
   },
   routes: {

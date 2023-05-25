@@ -3,22 +3,19 @@ import { ApiTags } from "@nestjs/swagger";
 import { Crud, CrudController } from "@nestjsx/crud";
 
 import { Auth } from "../../decorators";
-import { UserEntity as User } from "../../entities";
-import { UserService } from "./user.service";
+import { ExaminationSchedule } from "src/entities/examination-schedule";
+import { ExaminationScheduleService } from "./examination-schedule.service";
 
 @Auth({ checkRole: true })
 @Crud({
   model: {
-    type: User,
+    type: ExaminationSchedule,
   },
   query: {
     alwaysPaginate: true,
     softDelete: true,
     join: {
-      babies: { eager: false },
-      blogs: {eager: false},
-      bookDoctors: {eager: false},
-      examinationSchedule: {eager: false}
+      user: { eager: false },
     },
   },
   routes: {
@@ -35,8 +32,8 @@ import { UserService } from "./user.service";
     },
   },
 })
-@ApiTags("admin/users")
-@Controller("admin/users")
-export class AdminUserController implements CrudController<User> {
-  constructor(public service: UserService) {}
+@ApiTags("admin/examination-schedule")
+@Controller("admin/examination-schedule")
+export class AdminExaminationScheduleController implements CrudController<ExaminationSchedule> {
+  constructor(public service: ExaminationScheduleService) {}
 }

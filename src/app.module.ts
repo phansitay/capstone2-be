@@ -18,6 +18,7 @@ import { BabyModule } from './modules/baby/baby.module';
 import { UserModule } from './modules/user/user.module';
 import { SuggestScheduleCategory } from './entities/suggest-schedule-category';
 import { SuggestScheduleCategoryModule } from './modules/suggest-schedule-category/suggest-schedule-category.module';
+import { ExaminationScheduleModule } from './modules/examination-schedule/examination-schedule.module';
 
 @Module({
   imports: [
@@ -49,6 +50,7 @@ import { SuggestScheduleCategoryModule } from './modules/suggest-schedule-catego
     BmiKidModule,
     SuggestScheduleModule, 
     SuggestScheduleCategoryModule,
+    ExaminationScheduleModule,
     BabyModule,
     UserModule
     // append_here

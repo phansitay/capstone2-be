@@ -8,6 +8,7 @@ import { Blog } from './blog';
 import { BmiKid } from './bmi-kid';
 import { BookDoctor } from './book-doctor';
 import { Baby } from './baby';
+import { ExaminationSchedule } from './examination-schedule';
 
 @Entity('users')
 export class UserEntity extends WithIdAndTimestamp {
@@ -102,6 +103,9 @@ export class UserEntity extends WithIdAndTimestamp {
 
   @OneToMany(() => BookDoctor, (bookDoctors) => bookDoctors.user)
   bookDoctors: BookDoctor[];
+
+  @OneToMany(() => ExaminationSchedule, (examinationSchedules) => examinationSchedules.user)
+  examinationSchedule: ExaminationSchedule[];
 
   // @OneToMany(() => BookDoctor, (bookDoctors) => bookDoctors.user)
   // bookDoctors: BookDoctor[];
