@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { CrudValidationGroups } from '@nestjsx/crud';
+import { Column, Entity, OneToMany } from 'typeorm';
 import { Transform } from 'class-transformer';
 import {
   IsEmail,
@@ -48,11 +49,29 @@ export class RegisterDto {
   @IsOptional()
   @IsString()
   phoneNumber?: string;
-  
+
   @ApiProperty()
   @IsOptional()
   @IsString()
   address?: string;
+
+  @ApiProperty()
+  @IsOptional()
+  @IsString()
+  @Column({ nullable: true })
+  image: string ;
+
+  @ApiProperty()
+  @IsOptional()
+  @IsString()
+  @Column({ nullable: true })
+  roomName: string;
+
+  @ApiProperty()
+  @IsOptional()
+  @IsString()
+  @Column({ nullable: true })
+  businessHours: string;
 
   @ApiProperty()
   @IsOptional({ groups: [UPDATE, CREATE] })

@@ -28,6 +28,10 @@ export class BookDoctor extends WithIdAndTimestamp {
   endTime: string | null;
 
   @ApiProperty()
+  @Column('date', { name: 'today', nullable: true })
+  today: string | null;
+
+  @ApiProperty()
   @IsString()
   @Column('character varying', { name: 'content', nullable: true })
   content: string | null;
